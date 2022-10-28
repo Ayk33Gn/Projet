@@ -1,9 +1,9 @@
 const models = require("../models");
 
-class MessagesController {
+class ClientsController {
   static browse = async (req, res) => {
     try {
-      const [messages] = await models.messages.findAll();
+      const [messages] = await models.clients.findAll();
 
       if (messages.length === 0) {
         return res.status(404).send("Messages not found");
@@ -25,7 +25,7 @@ class MessagesController {
         return res.status(409).send("Champs manquants");
       }
 
-      const [result] = await models.messages.insert(message);
+      const [result] = await models.clients.insert(message);
 
       if (result.affectedRows !== 1) {
         return res
@@ -41,4 +41,4 @@ class MessagesController {
   };
 }
 
-module.exports = MessagesController;
+module.exports = ClientsController;
