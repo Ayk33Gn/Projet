@@ -8,7 +8,6 @@ class ClientsController {
       if (messages.length === 0) {
         return res.status(404).send("Messages not found");
       }
-      tco;
 
       return res.status(200).send(messages);
     } catch (err) {
